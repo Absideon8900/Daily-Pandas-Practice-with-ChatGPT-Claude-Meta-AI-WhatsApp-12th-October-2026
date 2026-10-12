@@ -71,6 +71,23 @@ plt.ylabel("")
 plt.style.use("dark_background")
 plt.bar(stations["station_mean_rainfall"].index,stations["station_mean_rainfall"].values)
 plt.show()
-# %%
-
 ```
+# Solution
+<b>Pandas output:</b></br>
+```
+The Dataframe of the Station:
+   site_id state landuse  rainfall  ndvi  station_mean_rainfall
+0      101    WB   Urban       400  0.25                  300.0
+1      102    WB  Forest       200  0.75                  300.0
+2      103    AS  Forest       600  0.85                  450.0
+3      104    AS   Urban       300  0.30                  450.0
+4      105    OD   Urban       500  0.40                  600.0
+5      106    OD  Forest       700  0.80                  600.0
+
+The Pivot Table of the Station:
+landuse state  Forest  Urban
+0          AS   600.0  300.0
+1          OD   700.0  500.0
+2          WB   200.0  400.0
+```
+<b>Matplotlib output:</b></br>
