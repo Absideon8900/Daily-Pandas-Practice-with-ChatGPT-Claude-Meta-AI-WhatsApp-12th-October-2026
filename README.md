@@ -34,6 +34,43 @@ Create a new Dataframe called ```rainfall_pivot``` with:</br>
   <li> aggfunc -> "mean"
 </ul>
 
-# Solution
+# Script
 Pandas & Matplotlib script:</br>
+```Python
+#%%
+import pandas as pd
+import matplotlib
+matplotlib.use("module://matplotlib_inline.backend_inline")
+import matplotlib.pyplot as plt
+stations = pd.DataFrame({
+    "site_id": [101, 102, 103, 104, 105, 106],
+    "state": ["WB", "WB", "AS", "AS", "OD", "OD"],
+    "landuse": ["Urban", "Forest", "Forest", "Urban", "Urban", "Forest"],
+    "rainfall": [400, 200, 600, 300, 500, 700]
+})
+ndvi_data = pd.DataFrame({
+    "site_id": [101, 102, 103, 104, 105, 106],
+    "ndvi": [0.25, 0.75, 0.85, 0.30, 0.40, 0.80]
+})
+stations = stations.merge(ndvi_data)
+stations["station_mean_rainfall"] = stations.groupby("state")["rainfall"].transform("mean")
+stations_p_t = stations.pivot_table(index="state",
+                                    columns="landuse",
+                                    aggfunc="mean",
+                                    values="rainfall").reset_index()
+print()
+print("The Dataframe of the Station:")
+print(stations)
+print()
+print("The Pivot Table of the Station:")
+print(stations_p_t)
+print()
+plt.title("The Histogram Plotting")
+plt.xlabel("")
+plt.ylabel("")
+plt.style.use("dark_background")
+plt.bar(stations["station_mean_rainfall"].index,stations["station_mean_rainfall"].values)
+plt.show()
+# %%
 
+```
