@@ -91,3 +91,4 @@ landuse state  Forest  Urban
 2          WB   200.0  400.0
 ```
 <b>Matplotlib output:</b></br>
+<img width="918" height="697" alt="image" src="https://github.com/user-attachments/assets/9133d591-2404-4886-8ddc-baf881280673" />
